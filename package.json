@@ -2,7 +2,7 @@
   "name": "com.aurore.lobbyplugin",
   "version": "1.0.0",
   "displayName": "Lobby plugin",
-  "description": "Plugin pour faire faciliter la creation d'un lobby avec unity gaming services",
+  "description": "Plugin pour faciliter la creation d'un lobby avec unity gaming services",
   "unity": "2021.3",
   "dependencies": {
     "com.unity.services.lobby": "1.0.3",
@@ -13,5 +13,12 @@
   "author": {
     "name": "Aurore"
   },
-  "unityRelease": "16f1"
+  "unityRelease": "16f1",
+  "samples": [
+    {
+      "displayName": "Lobby example",
+      "description": "Contain an example of use of this plugin",
+      "path": "Samples~/Aurore"
+    }
+  ]
 }
