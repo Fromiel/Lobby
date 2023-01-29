@@ -16,6 +16,7 @@
   "unityRelease": "16f1",
   "samples": [
     {
+      "displayName": "Aurore",
       "description": "Contain an example of use of this plugin",
       "path": "Samples~/Aurore"
     }
