@@ -1,0 +1,21 @@
+{
+    "name": "UI.Lobby",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3368cf3791528e845b0bd1a07dae1a82",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:4c3f49d89436d478ea78315c03159dcc",
+        "GUID:bf661efc3907d014ea1ad99f17bf8819",
+        "GUID:fe25561d224ed4743af4c60938a59d0b",
+        "GUID:cb416b52d66d34340a23956068aac469"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
