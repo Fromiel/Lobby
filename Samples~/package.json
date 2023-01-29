@@ -1,0 +1,9 @@
+{
+    "samples": [
+        {
+            "displayName": "Lobby example",
+            "description": "Contain an example of use of this plugin",
+            "path": "Samples~/Aurore"
+        }
+    ]
+}
