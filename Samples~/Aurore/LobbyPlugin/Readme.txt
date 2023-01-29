@@ -1,4 +1,5 @@
 Ce plugin permet de faciliter la mise en place d'un lobby
+(il est possible que ce readme ne soit plus a jour)
 
 Pour que ce plugin marche, il faut installer les packages de unity :
 - netcode for gameobjects
