@@ -1,6 +1,6 @@
 {
   "name": "com.aurore.lobbyplugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "Lobby plugin",
   "description": "Plugin pour faciliter la creation d'un lobby avec unity gaming services",
   "unity": "2021.3",

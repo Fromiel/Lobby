@@ -1,23 +1,20 @@
 using Unity.Netcode;
 using UnityEngine;
 
-namespace Aurore.LobbyPlugin.Scripts.Multiplayer.Lobby_
+/// <summary>
+/// Classe envoyant un event lorsqu'un joueur s'est connecte au serveur
+/// </summary>
+public class PlayerCheck : NetworkBehaviour
 {
-    /// <summary>
-    /// Classe envoyant un event lorsqu'un joueur s'est connecte au serveur
-    /// </summary>
-    public class PlayerCheck : NetworkBehaviour
-    {
-        public delegate void OnConnectedToServer(PlayerCheck player);
+    public delegate void OnConnectedToServer(PlayerCheck player);
 
-        public static event OnConnectedToServer ConnectedToServer;
+    public static event OnConnectedToServer ConnectedToServer;
         
-        private void Start()
-        {
-            if (!IsHost) return;
+    private void Start()
+    {
+        if (!IsHost) return;
             
-            Debug.Log("Player connected");
-            ConnectedToServer?.Invoke(this);
-        }
+        Debug.Log("Player connected");
+        ConnectedToServer?.Invoke(this);
     }
 }
