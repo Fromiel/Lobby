@@ -1,13 +1,13 @@
-using Aurore.LobbyPlugin.Scripts.UI.Views;
+using Lobby.UI.Views;
 using TMPro;
 using Unity.Services.Lobbies;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
+namespace Lobby.UI.Lobby
 {
     /// <summary>
-    /// Vue des erreurs
+    /// View to display an error
     /// </summary>
     public class ErrorView : View
     {
@@ -32,7 +32,7 @@ namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
                     contentErrorText.text = "Error when connecting to the lobby";
                     break;
                 case LobbyExceptionReason.RateLimited:
-                    contentErrorText.text = "ARRETE DE SPAMMER !!!!!!";
+                    contentErrorText.text = "You sent two requests too quickly";
                     break;
                 default:
                     contentErrorText.text = e.Reason.ToString();

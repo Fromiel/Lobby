@@ -1,16 +1,16 @@
 using System;
-using Aurore.LobbyPlugin.Scripts.Multiplayer;
-using Aurore.LobbyPlugin.Scripts.Multiplayer.Lobby_;
-using Aurore.LobbyPlugin.Scripts.UI.Views;
+using Lobby.Multiplayer;
+using Lobby.UI.Views;
 using TMPro;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
+using Fromiel.LobbyPlugin;
 
-namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
+namespace Lobby.UI.Lobby
 {
     /// <summary>
-    /// Vue du joueur lorsqu'il est dans un lobby
+    /// View of the player when is joined in a lobby
     /// </summary>
     public sealed class JoinedLobbyView : View
     {
@@ -43,8 +43,8 @@ namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
 
         public override void Initialize()
         {
-            LobbyManager.Instance.LobbyUpdated += UpdateUiWithLobbyInfos;
-            LobbyManager.Instance.BeginConnect += OnBeginConnect;
+            LobbyManager.Instance.OnLobbyUpdated += UpdateUiWithLobbyInfos;
+            LobbyManager.Instance.OnBeginConnect += OnBeginConnect;
             
             playButton.onClick.AddListener(Play);
             
@@ -67,8 +67,8 @@ namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
         {
             if (LobbyManager.Instance != null)
             {
-                LobbyManager.Instance.LobbyUpdated -= UpdateUiWithLobbyInfos;
-                LobbyManager.Instance.BeginConnect -= OnBeginConnect;
+                LobbyManager.Instance.OnLobbyUpdated -= UpdateUiWithLobbyInfos;
+                LobbyManager.Instance.OnBeginConnect -= OnBeginConnect;
             }
         }
 
@@ -78,7 +78,7 @@ namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
         #region Private methods
 
         /// <summary>
-        /// Methode appelee lorsque le lobby est mis a jour, met a jour l'ui
+        /// Method called when the lobby is updated, update the ui
         /// </summary>
         /// <param name="lobby"></param>
         private void UpdateUiWithLobbyInfos(Unity.Services.Lobbies.Models.Lobby lobby)
@@ -114,7 +114,7 @@ namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
 
 
         /// <summary>
-        /// Methode pour mettre a jour l'ui du nombre de joueurs
+        /// Method to update the ui of the number of players
         /// </summary>
         /// <param name="nbPlayers"></param>
         /// <param name="maxPlayers"></param>
@@ -124,7 +124,7 @@ namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
         }
 
         /// <summary>
-        /// Methode pour mettre à jour l'ui de l'id de la salle
+        /// Method to update the ui of the room id
         /// </summary>
         /// <param name="id"></param>
         private void SetId(string id)

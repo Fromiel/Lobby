@@ -1,17 +1,17 @@
 using System.Collections.Generic;
-using Aurore.LobbyPlugin.Scripts.Multiplayer;
-using Aurore.LobbyPlugin.Scripts.Multiplayer.Lobby_;
-using Aurore.LobbyPlugin.Scripts.UI.Views;
+using Lobby.Multiplayer;
+using Lobby.UI.Views;
 using TMPro;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
+using Fromiel.LobbyPlugin;
 
-namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
+namespace Lobby.UI.Lobby
 {
     /// <summary>
-    /// Vue de la creation d'un lobby
+    /// View to create a room
     /// </summary>
     public sealed class CreateRoomView : View
     {
@@ -35,8 +35,7 @@ namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
 
         private void OnScrollBarChanged(float newVal)
         {
-            //Pour l'instant juste choix entre deux valeurs
-            //todo : peut etre modifier ca dans le future
+            //There are only 2 choices : 2 or 3 players per team
             if (newVal < 0.5)
                 _nbPlayerPerTeam = 2;
             else

@@ -1,18 +1,18 @@
 using System.Collections.Generic;
-using Aurore.LobbyPlugin.Scripts.Multiplayer;
-using Aurore.LobbyPlugin.Scripts.Multiplayer.Lobby_;
-using Aurore.LobbyPlugin.Scripts.UI.Views;
+using Lobby.Multiplayer;
+using Lobby.UI.Views;
 using TMPro;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Fromiel.LobbyPlugin;
 
-namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
+namespace Lobby.UI.Lobby
 {
     /// <summary>
-    /// Classe representant la vue principale dans le lobby
+    /// Class representing the main view in the lobby
     /// </summary>
     public sealed class MainView : View
     {

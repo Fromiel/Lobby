@@ -4561,7 +4561,7 @@ MonoBehaviour:
   ConnectionData:
     Address: 127.0.0.1
     Port: 7777
-    ServerListenAddress: 
+    ServerListenAddress: 127.0.0.1
   DebugSimulator:
     PacketDelayMS: 0
     PacketJitterMS: 0
@@ -4584,12 +4584,8 @@ MonoBehaviour:
     ProtocolVersion: 0
     NetworkTransport: {fileID: 1218908051}
     PlayerPrefab: {fileID: 3148508199683722831, guid: 460b1585cebc7224cbc45ea65283429c, type: 3}
-    NetworkPrefabs:
-    - Override: 0
-      Prefab: {fileID: 3148508199683722831, guid: 460b1585cebc7224cbc45ea65283429c, type: 3}
-      SourcePrefabToOverride: {fileID: 0}
-      SourceHashToOverride: 0
-      OverridingTargetPrefab: {fileID: 0}
+    Prefabs:
+      NetworkPrefabsLists: []
     TickRate: 30
     ClientConnectionBufferTimeout: 10
     ConnectionApproval: 0
@@ -4605,6 +4601,12 @@ MonoBehaviour:
     LoadSceneTimeOut: 120
     SpawnTimeout: 1
     EnableNetworkLogs: 1
+    OldPrefabList:
+    - Override: 0
+      Prefab: {fileID: 3148508199683722831, guid: 460b1585cebc7224cbc45ea65283429c, type: 3}
+      SourcePrefabToOverride: {fileID: 0}
+      SourceHashToOverride: 0
+      OverridingTargetPrefab: {fileID: 0}
 --- !u!1 &1231636430
 GameObject:
   m_ObjectHideFlags: 0
@@ -6101,6 +6103,7 @@ MonoBehaviour:
   maxConnexionTry: 5
   specifyRegion: 0
   region: northamerica-northeast1
+  localTest: 1
 --- !u!1 &1505650784
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,17 +1,17 @@
 using System.Collections.Generic;
-using Aurore.LobbyPlugin.Scripts.Multiplayer;
-using Aurore.LobbyPlugin.Scripts.Multiplayer.Lobby_;
-using Aurore.LobbyPlugin.Scripts.UI.Views;
+using Lobby.Multiplayer;
+using Lobby.UI.Views;
 using TMPro;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
+using Fromiel.LobbyPlugin;
 
-namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
+namespace Lobby.UI.Lobby
 {
     /// <summary>
-    /// Represente une salle que l'on peut rejoindre dans la vue JoinPublicRoom
+    /// Represent a room that can be joined in the JoinPublicRoom view
     /// </summary>
     public sealed class JoinableRoom : MonoBehaviour
     {

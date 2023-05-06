@@ -1,7 +1,7 @@
-namespace Aurore.LobbyPlugin.Scripts.Multiplayer
+namespace Lobby.Multiplayer
 {
     /// <summary>
-    /// Type enum représentant l'équipe du joueur
+    /// Enum type to represent the team of a player
     /// </summary>
     public enum PlayerTeamEnum
     {

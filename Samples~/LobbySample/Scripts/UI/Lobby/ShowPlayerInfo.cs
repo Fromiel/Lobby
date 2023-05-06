@@ -2,10 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
+namespace Lobby.UI.Lobby
 {
     /// <summary>
-    /// Represente les informations d'un joueur qui sont indiquees dans un tableau d'equipe dans la vue JoinedLobbyView
+    /// Represent the player information in the team table in the JoinedLobbyView
     /// </summary>
     public sealed class ShowPlayerInfo : MonoBehaviour
     {

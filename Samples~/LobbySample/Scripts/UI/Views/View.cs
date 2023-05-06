@@ -1,24 +1,24 @@
 using UnityEngine;
 
-namespace Aurore.LobbyPlugin.Scripts.UI.Views
+namespace Lobby.UI.Views
 {
     /// <summary>
-    /// Classe représentant une vue dans le jeu
+    /// Abstract class to represent a view in the game
     /// </summary>
     public abstract class View : MonoBehaviour
     {
         /// <summary>
-        /// Methode pour initialiser la vue
+        /// Initialize the view
         /// </summary>
         public abstract void Initialize();
 
         /// <summary>
-        /// Methode pour cacher la vue
+        /// Hide the view
         /// </summary>
         public virtual void Hide() => gameObject.SetActive(false);
 
         /// <summary>
-        /// Methode pour afficher la vue
+        /// Show the view
         /// </summary>
         public virtual void Show() => gameObject.SetActive(true);
         

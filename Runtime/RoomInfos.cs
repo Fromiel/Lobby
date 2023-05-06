@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using Unity.Services.Lobbies.Models;
 
-/// <summary>
-/// Les infos d'un lobby à créer
-/// </summary>
-public struct RoomInfos
+namespace Fromiel.LobbyPlugin
 {
-    public string lobbyName;
-    public int maxPlayers;
-    public bool isPrivate;
-    public Dictionary<string, DataObject> data;
+    /// <summary>
+    /// Datas of a lobby to create
+    /// </summary>
+    public struct RoomInfos
+    {
+        public string lobbyName;
+        public int maxPlayers;
+        public bool isPrivate;
+        public Dictionary<string, DataObject> data;
+    }
 }

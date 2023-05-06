@@ -1,33 +1,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Aurore.LobbyPlugin.Scripts.UI.Views
+namespace Lobby.UI.Views
 {
     /// <summary>
-    /// Classe (singleton) permettant de gerer les differentes vues de l'ui
+    /// Singleton class to manage the different views of the ui
     /// </summary>
     public sealed class ViewManager : MonoBehaviour
     {
         #region Attributes
 
-        private static ViewManager _instance; //ViewManager est un singleton
+        private static ViewManager _instance;
 
-        [SerializeField] private View startingView; //Vue du debut de la scene
+        [SerializeField] private View startingView; //Starting view
 
-        [SerializeField] private View[] views; //Differentes vues
+        [SerializeField] private View[] views; //List of all the views
 
-        private View _currentView; //Vue actuelle
+        private View _currentView;
 
-        private readonly Stack<View> _history = new(); //Historique des vues (pour pouvoir faire des retour en arriere (sur le menu principal par exemple))
+        private readonly Stack<View> _history = new(); //Historic of the views (to be able to go back (on the main menu for example))
         
         #endregion
 
         #region Public static methods
 
         /// <summary>
-        /// Retourne la vue du type T
+        /// Return the view of type T
         /// </summary>
-        /// <typeparam name="T">Type de la vue</typeparam>
+        /// <typeparam name="T">Type of the view</typeparam>
         /// <returns></returns>
         public static T GetView<T>() where T : View
         {
@@ -41,12 +41,14 @@ namespace Aurore.LobbyPlugin.Scripts.UI.Views
 
             return null;
         }
+        
+
 
         /// <summary>
-        /// Affiche la vue de type T 
+        /// Show the view of type T
         /// </summary>
-        /// <param name="remember">Booleen pour savoir si on garde en memoire l'ancienne vue (true pour garder en memoire et false sinon)</param>
-        /// <typeparam name="T">Type de la vue</typeparam>
+        /// <param name="remember">Boolean to know if we keep in memory the old view (true to keep in memory and false otherwise)</param>
+        /// <typeparam name="T">Type of the view</typeparam>
         public static void Show<T>(bool remember = true) where T : View
         {
             for (int i = 0; i < _instance.views.Length; i++)
@@ -70,10 +72,10 @@ namespace Aurore.LobbyPlugin.Scripts.UI.Views
         }
 
         /// <summary>
-        /// Affiche la vue passée en argument
+        /// Show the view passed in parameter
         /// </summary>
-        /// <param name="view">Vue à afficher</param>
-        /// <param name="remember">Booleen pour savoir si on garde en memoire l'ancienne vue (true pour garder en memoire et false sinon)</param>
+        /// <param name="view">View to show</param>
+        /// <param name="remember">Boolean to know if we keep in memory the old view (true to keep in memory and false otherwise)</param>
         public static void Show(View view, bool remember = true)
         {
             if (_instance._currentView != null)
@@ -92,7 +94,7 @@ namespace Aurore.LobbyPlugin.Scripts.UI.Views
         }
 
         /// <summary>
-        /// Methode pour afficher la derniere vue en memoire
+        /// Method to show the last view in memory
         /// </summary>
         public static void ShowLast()
         {
@@ -111,7 +113,7 @@ namespace Aurore.LobbyPlugin.Scripts.UI.Views
 
         private void Start()
         {
-            //On initialise toutes les vues
+            //Initialize all the views
             for (int i = 0; i < views.Length; i++)
             {
                 views[i].Initialize();
@@ -119,7 +121,7 @@ namespace Aurore.LobbyPlugin.Scripts.UI.Views
                 views[i].Hide();
             }
 
-            //On affiche la vue de départ
+            //Show the starting view
             if (startingView != null)
             {
                 Show(startingView, true);

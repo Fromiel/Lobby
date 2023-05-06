@@ -1,12 +1,12 @@
-using Aurore.LobbyPlugin.Scripts.Multiplayer.Lobby_;
-using Aurore.LobbyPlugin.Scripts.UI.Views;
+using Lobby.UI.Views;
 using UnityEngine;
 using UnityEngine.UI;
+using Fromiel.LobbyPlugin;
 
-namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
+namespace Lobby.UI.Lobby
 {
     /// <summary>
-    /// Vue du choix des salles publiques
+    /// View to choose public rooms
     /// </summary>
     public sealed class JoinPublicRoomView : View
     {

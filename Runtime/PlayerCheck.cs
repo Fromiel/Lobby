@@ -1,20 +1,23 @@
 using Unity.Netcode;
 using UnityEngine;
 
-/// <summary>
-/// Classe envoyant un event lorsqu'un joueur s'est connecte au serveur
-/// </summary>
-public class PlayerCheck : NetworkBehaviour
+namespace Fromiel.LobbyPlugin
 {
-    public delegate void OnConnectedToServer(PlayerCheck player);
-
-    public static event OnConnectedToServer ConnectedToServer;
-        
-    private void Start()
+    /// <summary>
+    /// Class sending an event when a player is connected to the server
+    /// </summary>
+    public class PlayerCheck : NetworkBehaviour
     {
-        if (!IsHost) return;
-            
-        Debug.Log("Player connected");
-        ConnectedToServer?.Invoke(this);
+        public delegate void OnConnectedToServer(PlayerCheck player);
+
+        public static event OnConnectedToServer ConnectedToServer;
+
+        private void Start()
+        {
+            if (!IsHost) return;
+
+            Debug.Log("Player connected");
+            ConnectedToServer?.Invoke(this);
+        }
     }
 }

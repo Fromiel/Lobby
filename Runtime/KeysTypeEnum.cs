@@ -1,13 +1,17 @@
-/// <summary>
-/// Clés utilisées par le lobbymanager pour stocker les datas des players et des lobbys
-/// </summary>
-public enum KeysTypeEnum
+
+namespace Fromiel.LobbyPlugin
 {
-    //Cles du lobby
-    KeyPlayAgainstAI,
-    KeyStartGame, //Cle pour le code du serveur si la partie a ete lancee
-        
-    //Cles des players :
-    KeyPlayerName,
-    KeyPlayerTeam
+    /// <summary>
+    /// Keys used by the lobbymanager to store players and lobbies datas
+    /// </summary>
+    public enum KeysTypeEnum
+    {
+        //Keys of lobbies :
+        KeyPlayAgainstAI,
+        KeyStartGame, //Key of the code of the server if the game has been started
+
+        //Keys of players :
+        KeyPlayerName,
+        KeyPlayerTeam
+    }
 }

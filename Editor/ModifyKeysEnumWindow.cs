@@ -1,11 +1,10 @@
-#if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace Fromiel.LobbyPlugin.Editor
 {
     public class ModifyKeysEnumWindow : EditorWindow
     {
@@ -74,4 +73,3 @@ namespace Editor
         }
     }
 }
-#endif

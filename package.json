@@ -1,8 +1,8 @@
 {
-  "name": "com.aurore.lobbyplugin",
+  "name": "com.fromiel.lobbyplugin",
   "version": "1.0.1",
   "displayName": "Lobby plugin",
-  "description": "Plugin pour faciliter la creation d'un lobby avec unity gaming services",
+  "description": "Plugin to facilitate the creation of a lobby with unity gaming services",
   "unity": "2021.3",
   "dependencies": {
     "com.unity.services.lobby": "1.0.3",
@@ -11,14 +11,14 @@
     "com.unity.services.relay": "1.0.5"
   },
   "author": {
-    "name": "Aurore"
+    "name": "Fromiel"
   },
-  "unityRelease": "16f1",
+  "unityRelease": "24f1",
   "samples": [
     {
-      "displayName": "Aurore",
+      "displayName": "LobbySample",
       "description": "Contain an example of use of this plugin",
-      "path": "Samples~/Aurore"
+      "path": "Samples~/LobbySample"
     }
   ]
 }

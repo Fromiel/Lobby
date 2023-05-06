@@ -1,15 +1,15 @@
-using Aurore.LobbyPlugin.Scripts.Multiplayer.Lobby_;
-using Aurore.LobbyPlugin.Scripts.UI.Views;
+using Fromiel.LobbyPlugin;
+using Lobby.UI.Views;
 using TMPro;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Aurore.LobbyPlugin.Scripts.UI.Lobby
+namespace Lobby.UI.Lobby
 {
     /// <summary>
-    /// Vue du choix de pseudo
+    /// View to choose a pseudo
     /// </summary>
     public sealed class ChoosePseudoView : View
     {
