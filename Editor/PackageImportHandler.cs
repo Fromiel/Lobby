@@ -14,7 +14,7 @@ namespace Fromiel.LobbyPlugin.Editor
 
         private static void ChangeEnum()
         {
-            string enumFolder = "Assets/LobbyPlugin";
+            string enumFolder = "Assets/LobbyPlugin/";
             string enumName = "KeysTypeEnum";
             string filePathAndName = "Packages/LobbyPlugin/Runtime/" + enumName + ".cs";
 
