@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Fromiel.LobbyPlugin;
+using Fromiel.Keys;
 
 namespace Lobby.UI.Lobby
 {

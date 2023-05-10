@@ -5,14 +5,14 @@ using Fromiel.LobbyPlugin;
 
 namespace Fromiel.LobbyPlugin.Editor
 {
-    public sealed class PackageImportHandler : AssetPostprocessor
+    public sealed class PackageImportHandler// : AssetPostprocessor
     {
         private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
-            ChangeEnum();
+            //ChangeEnum();
         }
 
-        private static void ChangeEnum()
+        /*private static void ChangeEnum()
         {
             string enumFolder = "Assets/LobbyPlugin/";
             string enumName = "KeysTypeEnum";
@@ -69,6 +69,6 @@ namespace Fromiel.LobbyPlugin.Editor
             }
 
             return null;
-        }
+        }*/
     }
 }

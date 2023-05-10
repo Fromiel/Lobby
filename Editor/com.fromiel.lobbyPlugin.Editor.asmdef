@@ -2,7 +2,8 @@
     "name": "com.aurore.lobbyPlugin.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:3368cf3791528e845b0bd1a07dae1a82"
+        "GUID:3368cf3791528e845b0bd1a07dae1a82",
+        "GUID:56a4d790c974816459baa8c36bc2de65"
     ],
     "includePlatforms": [
         "Editor"

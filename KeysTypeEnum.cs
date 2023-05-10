@@ -1,4 +1,4 @@
-namespace Fromiel.LobbyPlugin
+namespace Fromiel.Keys
 {
 public enum KeysTypeEnum
 {

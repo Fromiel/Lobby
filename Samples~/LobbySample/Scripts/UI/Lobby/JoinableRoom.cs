@@ -7,6 +7,7 @@ using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using Fromiel.LobbyPlugin;
+using Fromiel.Keys;
 
 namespace Lobby.UI.Lobby
 {
