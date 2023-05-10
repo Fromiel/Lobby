@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Fromiel.Keys;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
@@ -61,8 +60,6 @@ namespace Fromiel.LobbyPlugin
         private float _lobbyUpdateTimer;
         private int _nbConnexionTry;
         private string _relayCode;
-
-        private const string Waiting = "0"; //Code of the server if the game has not started yet
 
         #endregion
 
@@ -132,8 +129,7 @@ namespace Fromiel.LobbyPlugin
             {
                 //Build lobby data with room data
                 var lobbyData = room.data;
-                lobbyData.Add(KeysTypeEnum.KeyStartGame.ToString(),
-                    new DataObject(DataObject.VisibilityOptions.Member, Waiting)); //Data to if the server has to load the server
+                lobbyData.Add(Keys.KeyStartGame, new DataObject(DataObject.VisibilityOptions.Member, Keys.Waiting)); //Data to change if the server has to load the server
 
                 var createLobbyOptions = new CreateLobbyOptions
                 {
@@ -313,8 +309,7 @@ namespace Fromiel.LobbyPlugin
             {
                 string relayCode = await CreateRelay();
 
-                await SetLobbyValue(KeysTypeEnum.KeyStartGame,
-                    new DataObject(DataObject.VisibilityOptions.Member, relayCode));
+                await SetLobbyValue(Keys.KeyStartGame,new DataObject(DataObject.VisibilityOptions.Member, relayCode));
 
                 _hostLobby = null;
                 _joinedLobby = null;
@@ -330,11 +325,11 @@ namespace Fromiel.LobbyPlugin
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public string GetLobbyValue(KeysTypeEnum key)
+        public string GetLobbyValue(string key)
         {
-            if (_joinedLobby == null || !_joinedLobby.Data.ContainsKey(key.ToString())) return null;
+            if (_joinedLobby == null || !_joinedLobby.Data.ContainsKey(key)) return null;
 
-            return _joinedLobby?.Data[key.ToString()].Value;
+            return _joinedLobby?.Data[key].Value;
         }
 
         /// <summary>
@@ -343,14 +338,14 @@ namespace Fromiel.LobbyPlugin
         /// </summary>
         /// <param name="key"></param>
         /// <param name="newValue"></param>
-        public async Task SetLobbyValue(KeysTypeEnum key, DataObject newValue)
+        public async Task SetLobbyValue(string key, DataObject newValue)
         {
             if (_hostLobby == null) return;
 
             try
             {
                 var newData = _hostLobby.Data;
-                newData[key.ToString()] = newValue;
+                newData[key] = newValue;
 
                 _hostLobby = await Lobbies.Instance.UpdateLobbyAsync(_joinedLobby.Id, new UpdateLobbyOptions
                 {
@@ -374,10 +369,10 @@ namespace Fromiel.LobbyPlugin
         /// <param name="player"></param>
         /// <param name="key">Key of the data</param>
         /// <returns>Return the value if the key exist, null otherwise</returns>
-        public string GetPlayerValue(Player player, KeysTypeEnum key)
+        public string GetPlayerValue(Player player, string key)
         {
-            if (!player.Data.ContainsKey(key.ToString())) return null;
-            return player.Data[key.ToString()].Value;
+            if (!player.Data.ContainsKey(key)) return null;
+            return player.Data[key].Value;
         }
 
         /// <summary>
@@ -385,7 +380,7 @@ namespace Fromiel.LobbyPlugin
         /// </summary>
         /// <param name="key">Key of the data</param>
         /// <returns></returns>
-        public string GetPlayerValue(KeysTypeEnum key)
+        public string GetPlayerValue(string key)
         {
             if (_joinedLobby == null) return null;
 
@@ -404,7 +399,7 @@ namespace Fromiel.LobbyPlugin
         /// <param name="player"></param>
         /// <param name="key">Key of the data to set</param>
         /// <param name="value">New value of the data</param>
-        public async Task SetPlayerValue(Player player, KeysTypeEnum key, PlayerDataObject value)
+        public async Task SetPlayerValue(Player player, string key, PlayerDataObject value)
         {
             if (_joinedLobby == null) return;
 
@@ -412,7 +407,7 @@ namespace Fromiel.LobbyPlugin
             {
                 var playerId = player.Id;
                 var newData = player.Data;
-                newData[key.ToString()] = value;
+                newData[key] = value;
 
                 UpdatePlayerOptions updatePlayerOptions = new UpdatePlayerOptions
                 {
@@ -438,7 +433,7 @@ namespace Fromiel.LobbyPlugin
         /// </summary>
         /// <param name="key">Key of the data to set</param>
         /// <param name="value">New value of the data</param>
-        public async Task SetPlayerValue(KeysTypeEnum key, PlayerDataObject value)
+        public async Task SetPlayerValue(string key, PlayerDataObject value)
         {
             if (_joinedLobby == null) return;
 
@@ -521,10 +516,10 @@ namespace Fromiel.LobbyPlugin
             _lobbyUpdateTimer = lobbyUpdateTimerMax;
             _joinedLobby = await LobbyService.Instance.GetLobbyAsync(_joinedLobby.Id);
 
-            if (_joinedLobby.Data[KeysTypeEnum.KeyStartGame.ToString()].Value != Waiting)
+            if (_joinedLobby.Data[Keys.KeyStartGame].Value != Keys.Waiting)
             {
                 if (!IsHost())
-                    JoinRelay(_joinedLobby.Data[KeysTypeEnum.KeyStartGame.ToString()].Value);
+                    JoinRelay(_joinedLobby.Data[Keys.KeyStartGame].Value);
 
                 _joinedLobby = null;
                 return;
@@ -650,6 +645,7 @@ namespace Fromiel.LobbyPlugin
                 }
             }
         }
+       
 
         #endregion
 

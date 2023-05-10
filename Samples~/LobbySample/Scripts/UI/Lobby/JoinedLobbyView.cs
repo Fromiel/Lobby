@@ -6,7 +6,6 @@ using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
 using Fromiel.LobbyPlugin;
-using Fromiel.Keys;
 
 namespace Lobby.UI.Lobby
 {
@@ -96,7 +95,7 @@ namespace Lobby.UI.Lobby
                 playButton.interactable = !_connecting && _nbPlayersATeam + _nbPlayersBTeam == _maxPlayers;
             }
 
-            if (bool.Parse(LobbyManager.Instance.GetLobbyValue(KeysTypeEnum.KeyPlayAgainstAI)))
+            if (bool.Parse(LobbyManager.Instance.GetLobbyValue(LobbyKeys.RoomKeys.KeyPlayAgainstAI.ToString())))
             {
                 _maxPlayerEachTeam = _joinedLobby.MaxPlayers;
                 bTeamLayout.transform.parent.gameObject.SetActive(false);
@@ -155,18 +154,18 @@ namespace Lobby.UI.Lobby
 
             foreach (var player in _joinedLobby.Players)
             {
-                var team = Enum.Parse<PlayerTeamEnum>(LobbyManager.Instance.GetPlayerValue(player, KeysTypeEnum.KeyPlayerTeam));
+                var team = Enum.Parse<PlayerTeamEnum>(LobbyManager.Instance.GetPlayerValue(player, LobbyKeys.PlayerKeys.KeyPlayerTeam.ToString()));
                 if (team == PlayerTeamEnum.A)
                 {
                     _nbPlayersATeam++;
                     var go = Instantiate(uiPlayerPrefab, aTeamLayout.transform);
-                    go.GetComponent<ShowPlayerInfo>().Initialize(LobbyManager.Instance.IsHost(player), LobbyManager.Instance.GetPlayerValue(player, KeysTypeEnum.KeyPlayerName));
+                    go.GetComponent<ShowPlayerInfo>().Initialize(LobbyManager.Instance.IsHost(player), LobbyManager.Instance.GetPlayerValue(player, LobbyKeys.PlayerKeys.KeyPlayerName.ToString()));
                 }
                 else if (team == PlayerTeamEnum.B)
                 {
                     _nbPlayersBTeam++;
                     var go = Instantiate(uiPlayerPrefab, bTeamLayout.transform);
-                    go.GetComponent<ShowPlayerInfo>().Initialize(LobbyManager.Instance.IsHost(player), LobbyManager.Instance.GetPlayerValue(player, KeysTypeEnum.KeyPlayerName));
+                    go.GetComponent<ShowPlayerInfo>().Initialize(LobbyManager.Instance.IsHost(player), LobbyManager.Instance.GetPlayerValue(player, LobbyKeys.PlayerKeys.KeyPlayerName.ToString()));
                 }
             }
         }
@@ -187,7 +186,7 @@ namespace Lobby.UI.Lobby
             
             var team = isATeam ? PlayerTeamEnum.A : PlayerTeamEnum.B;
 
-            await LobbyManager.Instance.SetPlayerValue(KeysTypeEnum.KeyPlayerTeam, new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, team.ToString()));
+            await LobbyManager.Instance.SetPlayerValue(LobbyKeys.PlayerKeys.KeyPlayerTeam.ToString(), new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, team.ToString()));
         }
 
 

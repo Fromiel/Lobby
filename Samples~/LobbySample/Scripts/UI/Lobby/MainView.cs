@@ -8,7 +8,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Fromiel.LobbyPlugin;
-using Fromiel.Keys;
 
 namespace Lobby.UI.Lobby
 {
@@ -66,11 +65,11 @@ namespace Lobby.UI.Lobby
                 data = new Dictionary<string, PlayerDataObject>()
                 {
                     {
-                        KeysTypeEnum.KeyPlayerName.ToString(),
+                        LobbyKeys.PlayerKeys.KeyPlayerName.ToString(),
                         new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "")
                     },
                     {
-                        KeysTypeEnum.KeyPlayerTeam.ToString(),
+                        LobbyKeys.PlayerKeys.KeyPlayerTeam.ToString(),
                         new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member,
                             PlayerTeamEnum.Spectate.ToString())
                     }

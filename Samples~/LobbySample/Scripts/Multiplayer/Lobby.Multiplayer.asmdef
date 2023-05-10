@@ -1,3 +1,16 @@
 {
-	"name": "Multiplayer"
+    "name": "Multiplayer",
+    "rootNamespace": "",
+    "references": [
+        "GUID:3368cf3791528e845b0bd1a07dae1a82"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

@@ -1,11 +1,11 @@
 using Fromiel.LobbyPlugin;
+using Lobby.Multiplayer;
 using Lobby.UI.Views;
 using TMPro;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using UnityEngine;
 using UnityEngine.UI;
-using Fromiel.Keys;
 
 namespace Lobby.UI.Lobby
 {
@@ -42,7 +42,7 @@ namespace Lobby.UI.Lobby
                 }
                 else
                 {
-                    await LobbyManager.Instance.SetPlayerValue(KeysTypeEnum.KeyPlayerName, new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, pseudo));
+                    await LobbyManager.Instance.SetPlayerValue(LobbyKeys.PlayerKeys.KeyPlayerName.ToString(), new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, pseudo));
                     ViewManager.Show<JoinedLobbyView>();
                 }
             }
