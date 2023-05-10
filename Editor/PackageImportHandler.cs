@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using UnityEditor;
-using UnityEngine;
+using Fromiel.LobbyPlugin;
 
 namespace Fromiel.LobbyPlugin.Editor
 {
@@ -22,13 +22,16 @@ namespace Fromiel.LobbyPlugin.Editor
             {
                 if (!Directory.Exists(enumFolder))
                 {
+                    filePathAndName = FindFolderName() + "/Runtime/"+ enumName + ".cs";
                     Directory.CreateDirectory(enumFolder);
                     if (File.Exists(filePathAndName))
                     {
                         File.Delete(filePathAndName);
                     }
                 }
+                
                 filePathAndName = enumFolder + enumName + ".cs";
+                File.Create(filePathAndName);
             }
 
             using ( StreamWriter streamWriter = new StreamWriter( filePathAndName ) )
@@ -49,6 +52,23 @@ namespace Fromiel.LobbyPlugin.Editor
             }
             AssetDatabase.Refresh();
         
+        }
+        
+        private static string FindFolderName()
+        {
+            string rootPath = "Assets";
+            string searchPattern = "com.fromiel.lobbyplugin*";
+
+            string[] matchingFolders = Directory.GetDirectories(rootPath, searchPattern);
+
+            if (matchingFolders.Length > 0)
+            {
+                string folderPath = matchingFolders[0];
+                string folderName = new DirectoryInfo(folderPath).Name;
+                return folderName;
+            }
+
+            return null;
         }
     }
 }
