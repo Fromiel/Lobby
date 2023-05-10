@@ -152,9 +152,7 @@ namespace Fromiel.LobbyPlugin
                 //Send event that the player joined a lobby
                 SendRoomJoinedEvent();
 
-                Debug.Log("Created lobby! " + _hostLobby.Name + " code : " + _hostLobby.LobbyCode +
-                          " Data : play against ai : " +
-                          _joinedLobby.Data[KeysTypeEnum.KeyPlayAgainstAI.ToString()].Value);
+                Debug.Log("Created lobby! " + _hostLobby.Name + " code : " + _hostLobby.LobbyCode);
             }
             catch (LobbyServiceException e)
             {
