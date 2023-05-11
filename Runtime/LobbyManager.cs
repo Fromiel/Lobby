@@ -111,6 +111,7 @@ namespace Fromiel.LobbyPlugin
         private void OnDestroy()
         {
             AuthenticationService.Instance.SignOut();
+            AuthenticationService.Instance.SignedIn -= OnSignedIn;
             if (NetworkManager.Singleton != null && NetworkManager.Singleton.GetComponent<UnityTransport>() != null)
                 NetworkManager.Singleton.GetComponent<UnityTransport>().OnTransportEvent -= OnTransportEvent;
         }
@@ -546,10 +547,7 @@ namespace Fromiel.LobbyPlugin
             {
                 await UnityServices.InitializeAsync(initializationOptions);
 
-                AuthenticationService.Instance.SignedIn += () =>
-                {
-                    Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId);
-                };
+                AuthenticationService.Instance.SignedIn += OnSignedIn;
 
                 await AuthenticationService.Instance.SignInAnonymouslyAsync();
             }
@@ -557,6 +555,11 @@ namespace Fromiel.LobbyPlugin
             {
                 Debug.Log(e);
             }
+        }
+        
+        private void OnSignedIn()
+        {
+            Debug.Log("Signed in " + AuthenticationService.Instance.PlayerId);
         }
         
 
