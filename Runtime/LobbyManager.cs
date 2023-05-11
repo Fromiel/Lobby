@@ -110,6 +110,7 @@ namespace Fromiel.LobbyPlugin
 
         private void OnDestroy()
         {
+            AuthenticationService.Instance.SignOut();
             if (NetworkManager.Singleton != null && NetworkManager.Singleton.GetComponent<UnityTransport>() != null)
                 NetworkManager.Singleton.GetComponent<UnityTransport>().OnTransportEvent -= OnTransportEvent;
         }
